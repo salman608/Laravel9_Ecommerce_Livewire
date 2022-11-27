@@ -82,17 +82,8 @@
                         @livewire('header-search-component')
                         <div class="header-action-right">
                             <div class="header-action-2">
-                                <div class="header-action-icon-2">
-                                    <a href="#">
-                                        <img class="svgInject" alt="cart" src="{{ asset('assets/imgs/theme/icons/icon-heart.svg') }}">
-                                        
-                                        <span class="pro-count blue">2</span>
-                                        
-                                      
-                                    </a>
-                                </div>
-
-                      @livewire('cart-icon-component')
+                            @livewire('wishlist-icon-component')
+                            @livewire('cart-icon-component')
                             </div>
                         </div>
                     </div>

@@ -18,11 +18,22 @@ class ShopComponent extends Component
     public $min_value = 0;
     public $max_value = 1000;
 
+    //Add to cart function
     public function store($product_id, $product_name, $product_price)
     {
-        Cart::add($product_id, $product_name, 1, $product_price)->associate('\App\Models\Product');
+        Cart::instance('cart')->add($product_id, $product_name, 1, $product_price)->associate('\App\Models\Product');
         session()->flash('success_message', 'Item Added to Cart');
+        $this->emitTo('cart-icon-component', 'refreshComponent');
         return redirect()->route('shop.cart');
+    }
+
+    //Add to Wishlist function
+    public function addToWishlist($product_id, $product_name, $product_price)
+    {
+        Cart::instance('wishlist')->add($product_id, $product_name, 1, $product_price)->associate('\App\Models\Product');
+        $this->emitTo('wishlist-icon-component', 'refreshComponent');
+        //  session()->flash('success_message', 'Item Added to Cart');
+        //  return redirect()->route('shop.cart');
     }
 
     public function changePageSize($size)
