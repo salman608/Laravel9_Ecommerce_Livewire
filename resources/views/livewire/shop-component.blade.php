@@ -91,7 +91,7 @@
                                             <a aria-label="Quick view" class="action-btn hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal">
                                                 <i class="fi-rs-search"></i></a>
                                             @if ($wishitems->contains($product->id))
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up wishlisted" href="wishlist.php"><i class="fi-rs-heart"></i></a>
+                                            <a aria-label="Remove From Wishlist" class="action-btn hover-up wishlisted" href="#" Wire:click.prevent="removeWishlist({{ $product->id }})"><i class="fi-rs-heart"></i></a>
                                             @else
                                             <a aria-label="Add To Wishlist" class="action-btn hover-up" href="#" wire:click.prevent="addToWishlist({{ $product->id }},'{{ $product->name }}',{{ $product->regular_price }})"><i class="fi-rs-heart"></i></a>
                                             @endif

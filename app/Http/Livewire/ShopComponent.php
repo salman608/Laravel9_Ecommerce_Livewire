@@ -36,6 +36,18 @@ class ShopComponent extends Component
         //  return redirect()->route('shop.cart');
     }
 
+    //Remove to Wishlist function
+    public function removeWishlist($product_id)
+    {
+        foreach (Cart::instance('wishlist')->content() as $wishitem) {
+            if ($wishitem->id == $product_id) {
+                Cart::instance('wishlist')->remove($wishitem->rowId);
+                $this->emitTo('wishlist-icon-component', 'refreshComponent');
+                return;
+            }
+        }
+    }
+
     public function changePageSize($size)
     {
         $this->pageSize = $size;
