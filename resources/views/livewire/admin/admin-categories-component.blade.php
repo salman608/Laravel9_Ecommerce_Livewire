@@ -23,8 +23,13 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header">
-                                All Categories
+                            <div class="card-header">          
+                                <div class="row">
+                                    <div class="col-md-6"> <h2>All Categories</h2></div>
+                                    <div class="col-md-6">
+                                        <a href="{{ route('admin.category.add') }}" class="btn btn-success float-end">Add Category</a>
+                                    </div>
+                                </div>
                             </div>
                             <div class="card-body">
                                 <table class="table table-striped">
@@ -38,11 +43,11 @@
                                     </thead>
                                     <tbody>
                                         @php
-                                            $i=1;
+                                            $i=($categories->currentPage()-1)*$categories->perPage();
                                         @endphp
                                         @foreach ($categories as $category)
                                         <tr>
-                                            <td>{{ $i++ }}</td>
+                                            <td>{{ ++$i }}</td>
                                             <td>{{ $category->category }}</td>
                                             <td>{{ $category->slug }}</td>
                                             <td>
@@ -54,6 +59,11 @@
                                         @endforeach                    
                                     </tbody>
                                 </table>
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-start">
+                                        {{ $categories->links() }}
+                                    </ul>
+                                </nav>
                                 {{-- {{ $categories->links() }} --}}
                             </div>
                         </div>

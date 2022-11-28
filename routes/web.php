@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\Admin\AdminAddCategoryComponent;
 use App\Http\Livewire\Admin\AdminCategoriesComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
+use App\Http\Livewire\Admin\AdminEditCategoryComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CategoryComponent;
@@ -48,7 +50,10 @@ require __DIR__ . '/auth.php';
 
 Route::middleware('auth', 'authadmin')->group(function () {
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
+    //Admin category Route
     Route::get('/admin/categories', AdminCategoriesComponent::class)->name('admin.categories');
+    Route::get('/admin/categort/add', AdminAddCategoryComponent::class)->name('admin.category.add');
+    Route::get('/admin/categort/edit/{category_id}', AdminEditCategoryComponent::class)->name('admin.category.edit');
 });
 
 
