@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Livewire\Admin\AdminCategoriesComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\CartComponent;
@@ -43,10 +44,11 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__ . '/auth.php';
 
-// Admin dashboard
+// Admin dashboard Routes
 
 Route::middleware('auth', 'authadmin')->group(function () {
     Route::get('/admin/dashboard', AdminDashboardComponent::class)->name('admin.dashboard');
+    Route::get('/admin/categories', AdminCategoriesComponent::class)->name('admin.categories');
 });
 
 
