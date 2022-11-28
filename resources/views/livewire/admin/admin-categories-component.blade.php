@@ -51,7 +51,7 @@
                                             <td>{{ $category->category }}</td>
                                             <td>{{ $category->slug }}</td>
                                             <td>
-                                                <a href="#"class="text-danger"><i class="fi-rs-trash"></i></a>
+                                                <a href="{{ route('admin.category.edit',['category_id'=>$category->id]) }}"class="text-danger"><i class="fi-rs-trash"></i></a>
                                                 <a href="#"class="text-info"><i class="fi-rs-edit"></i></a>
                                             </td>
                                         </tr>

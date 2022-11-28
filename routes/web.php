@@ -53,7 +53,7 @@ Route::middleware('auth', 'authadmin')->group(function () {
     //Admin category Route
     Route::get('/admin/categories', AdminCategoriesComponent::class)->name('admin.categories');
     Route::get('/admin/categort/add', AdminAddCategoryComponent::class)->name('admin.category.add');
-    Route::get('/admin/categort/edit/{category_id}', AdminEditCategoryComponent::class)->name('admin.category.edit');
+    Route::get('/admin/category/edit/{category_id}', AdminEditCategoryComponent::class)->name('admin.category.edit');
 });
 
 
