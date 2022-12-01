@@ -42,7 +42,7 @@ class AdminEditCategoryComponent extends Component
             'slug' => 'required'
         ]);
 
-        Category::find($this->category_id)->create([
+        Category::find($this->category_id)->update([
             'category' => $this->category,
             'slug' => $this->slug,
         ]);
