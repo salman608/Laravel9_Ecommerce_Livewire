@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Admin\AdminAddCategoryComponent;
+use App\Http\Livewire\Admin\AdminAddHomeSlideComponent;
 use App\Http\Livewire\Admin\AdminAddProductComponent;
 use App\Http\Livewire\Admin\AdminCategoriesComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Admin\AdminEditCategoryComponent;
+use App\Http\Livewire\Admin\AdminEditHomeSlideComponent;
 use App\Http\Livewire\Admin\AdminEditProductComponent;
+use App\Http\Livewire\Admin\AdminHomeSlideComponent;
 use App\Http\Livewire\Admin\AdminProductComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\CartComponent;
@@ -61,6 +64,11 @@ Route::middleware('auth', 'authadmin')->group(function () {
     Route::get('/admin/products', AdminProductComponent::class)->name('admin.products');
     Route::get('/admin/products/add', AdminAddProductComponent::class)->name('admin.product.add');
     Route::get('/admin/products/edit/{product_id}', AdminEditProductComponent::class)->name('admin.product.edit');
+
+    // Slider route
+    Route::get('/admin/slider', AdminHomeSlideComponent::class)->name('admin.home.slider');
+    Route::get('/admin/slider/add', AdminAddHomeSlideComponent::class)->name('admin.home.slider.add');
+    Route::get('/admin/slider/edit/{slider_id}', AdminEditHomeSlideComponent::class)->name('admin.home.slider.edit');
 });
 
 
